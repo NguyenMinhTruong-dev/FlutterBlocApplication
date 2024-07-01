@@ -7,15 +7,13 @@ class AppBloc extends Bloc<AppEvents, AppStates>{
   AppBloc():super(InitStates()){
 
     on<Increment>((event, emit){
-
-      // _incrementCounter(emit);
+      _incrementCounter(emit);
       emit(AppStates(counter: state.counter+1));
       print('FlutterApp: _incrementCounter "${state.counter}"');
     });
 
     on<Decrement>((event, emit){
-      // _decrementCounter(emit);
-      emit(AppStates(counter: state.counter-1));
+      _decrementCounter(emit);
       print('FlutterApp: _decrementCounter "${state.counter}"');
     });
   }
