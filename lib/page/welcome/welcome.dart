@@ -36,11 +36,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   PageView(
                     controller: pageController,
                     onPageChanged: (index) {
-                      LogUtil.start();
+                      LogUtil.start("PageView.onPageChanged");
                       developer.log("[${LogUtil.APP_TAG}] page index: ${index}");
                       state.page = index;
                       BlocProvider.of<WelcomeBloc>(context).add(WelcomeEvent());
-                      LogUtil.end();
+                      LogUtil.end("PageView.onPageChanged");
                     },
                     children: [
                       _page(
@@ -116,14 +116,18 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         ),
         GestureDetector(
           onTap: () {
+            LogUtil.start("GestureDetector.onTap");
+            developer.log('Page Index: $index');
             if (index < 3) {
               pageController.animateToPage(index,
                   duration: const Duration(milliseconds: 500),
                   curve: Curves.decelerate);
             } else {
-              Navigator.of(context)
-                  .pushNamedAndRemoveUntil("signIn", (route) => false);
+              // Navigator.of(context)
+              //     .pushNamedAndRemoveUntil("signIn", (route) => false);
+              developer.log('Page Index >= 3');
             }
+            LogUtil.end("GestureDetector.onTap");
           },
           child: Container(
             margin: EdgeInsets.only(top: 100.h, left: 25.w, right: 25.w),

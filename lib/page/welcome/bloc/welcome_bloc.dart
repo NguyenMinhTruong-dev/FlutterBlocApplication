@@ -11,9 +11,9 @@ class WelcomeBloc extends Bloc<WelcomeEvent, WelcomeState>{
   }
 
   void _updatePageIndex(Emitter emit){
-    LogUtil.start();
+    LogUtil.start("_updatePageIndex");
     emit(WelcomeState(page: state.page));
-    LogUtil.end();
+    LogUtil.end("_updatePageIndex");
   }
 }
 

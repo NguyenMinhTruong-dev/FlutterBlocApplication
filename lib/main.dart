@@ -56,8 +56,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: BlocBuilder<AppBloc, AppStates>(
           builder: (context, state) {
-            LogUtil.start();
-            LogUtil.end();
+            LogUtil.start("BlocBuilder<AppBloc, AppStates>.builder");
+            LogUtil.end("BlocBuilder<AppBloc, AppStates>.builder");
             return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[

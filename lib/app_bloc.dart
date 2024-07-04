@@ -19,16 +19,16 @@ class AppBloc extends Bloc<AppEvents, AppStates>{
   }
 
   void _incrementCounter(Emitter<AppStates> emit) {
-    LogUtil.start();
+    LogUtil.start("_incrementCounter");
     emit(AppStates(counter: state.counter+1));
     developer.log('FlutterApp: _incrementCounter "${state.counter}"');
-    LogUtil.end();
+    LogUtil.end("_incrementCounter");
   }
 
   void _decrementCounter(Emitter<AppStates> emit) {
-    LogUtil.start();
+    LogUtil.start("_decrementCounter");
     emit(AppStates(counter: state.counter-1));
     developer.log('FlutterApp: _decrementCounter "${state.counter}"');
-    LogUtil.end();
+    LogUtil.end("_decrementCounter");
   }
 }
