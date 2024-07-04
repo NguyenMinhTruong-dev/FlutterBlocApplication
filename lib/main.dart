@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterblocapplication/app_bloc.dart';
 import 'package:flutterblocapplication/app_events.dart';
 import 'package:flutterblocapplication/app_states.dart';
+import 'package:flutterblocapplication/util/LogUtil.dart';
 
 void main() {
   runApp(const MyApp());
@@ -47,7 +48,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: BlocBuilder<AppBloc, AppStates>(
           builder: (context, state) {
-            print('FlutterApp: builder');
+            LogUtil.start();
+            LogUtil.end();
             return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
